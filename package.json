@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Opseua/API.git"
+  },
+  "keywords": [
+    "API",
+    "REST",
+    "JSON",
+    "NODEJS",
+    "MySQL",
+    "CRUD",
+    "API",
+    "HTTP"
+  ],
+  "author": "Orlando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Opseua/API/issues"
+  },
+  "homepage": "https://github.com/Opseua/API#readme"
+}
