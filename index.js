@@ -1,61 +1,66 @@
-// Criar const com os módulos necessários
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
+
 const conf = require('dotenv').config().parsed;
 
-// Definir porta
+console.log(conf);
+
 const port = conf.HTTPPORT;
 
-// Objeto que será executado quando houver uma requisição
-const controller = {
-  resJson: async (req, res) => {
-
-    // Lista com alguns atributos úteis da requisição (req) HTTP
-    data = {
-      "method": req.method,
-      "url": req.url,
-      "baseURL": req.baseURL,
-      "query":res.query,
-      "params": req.params,
-      "body": req.body,
-      "headers": req.headers
-    }
-
-    // Envia JSON com os dados acima para o cliente, como texto plano
-    // res.send(data);
-
-    // Envia JSON com os dados acima para o cliente, como texto plano JSON
-    res.json(data);
-    
-  }
+// Objeto que será executado quando houver uma requisição.
+const thing = {
+  getAll: async (req, res) => {
+    res.json({ "req": req.method, "status": "ok" });
+  },
+  getOne: async (req, res) => {
+    const id = req.params.id;
+    res.json({ "req": req.method, "id": id, "status": "ok" });
+  },
+  post: async (req, res) => {
+    res.json({ "req": req.method, "status": "ok" });
+   },
+  put: async (req, res) => { 
+    res.json({ "req": req.method, "status": "ok" });
+  },
+  delete: async (req, res) => {
+    res.json({ "req": req.method, "status": "ok" });
+   }
 }
 
-// Recebe os dados do body HTTP e valida em JSON → POST e PUT
+// Objeto que trata requisições para o 'user'.
+const user = {
+  getOne: async (req, res) => { },
+  post: async (req, res) => { },
+  put: async (req, res) => { },
+  delete: async (req, res) => { }
+}
+
+// Recebe os dados do body HTTP e valida em JSON → POST e PUT.
 const bodyParser = require('body-parser').json();
 
-// Extrai os dados do cabeçalho da requisição usando "URL ENCODED".
-// const bodyParser = require('body-parser').urlencoded();
+// Rota para GET → getAll() → Recebe, por exemplo, todos os registros.
+app.get('/', thing.getAll);
 
-// Rota para GET → getAll() → Recebe, por exemplo, todos os registros
-app.get('/', controller.resJson);
-
-// Rota para GET → get(id) → Recebe apenas o registro identificado
-app.get('/:id', controller.resJson);
+// Rota para GET → get(id) → Recebe apenas o registro identificado.
+app.get('/:id', thing.getOne);
 
 // Rota para DELETE.
-app.delete('/:id', controller.resJson);
+app.delete('/:id', thing.delete);
 
-// Rota para POST → bodyParser (no hook) é usado para garantir a chegada de um JSON
-app.post('/', bodyParser, controller.resJson);
+// Rota para POST → bodyParser (no hook) é usado para garantir a chegada de um JSON.
+app.post('/', bodyParser, thing.post);
 
-// Rota para PUT → bodyParser (no hook) é usado para garantir a chegada de um JSON 
-app.put('/:id', bodyParser, controller.resJson);
+// Rota para PUT → bodyParser (no hook) é usado para garantir a chegada de um JSON.
+app.put('/:id', bodyParser, thing.put);
 
-// Rota para PATCH → bodyParser (no hook) é usado para garantir a chegada de um JSON 
-app.patch('/:id', bodyParser, controller.resJson);
+// Rotas para o ususário
+app.get('/user/:id', user.getOne);
+app.put('/user/:id', user.put);
+app.delete('/user/:id', user.delete);
 
-// Escutar a porta
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-});
+})
+
+
 
