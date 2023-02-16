@@ -33,9 +33,6 @@ const controller = {
 // Recebe os dados do body HTTP e valida em JSON → POST e PUT
 const bodyParser = require('body-parser').json();
 
-// Extrai os dados do cabeçalho da requisição usando "URL ENCODED".
-// const bodyParser = require('body-parser').urlencoded();
-
 // Rota para GET → getAll() → Recebe, por exemplo, todos os registros
 app.get('/', controller.resJson);
 
@@ -50,9 +47,6 @@ app.post('/', bodyParser, controller.resJson);
 
 // Rota para PUT → bodyParser (no hook) é usado para garantir a chegada de um JSON 
 app.put('/:id', bodyParser, controller.resJson);
-
-// Rota para PATCH → bodyParser (no hook) é usado para garantir a chegada de um JSON 
-app.patch('/:id', bodyParser, controller.resJson);
 
 // Escutar a porta
 app.listen(port, () => {
