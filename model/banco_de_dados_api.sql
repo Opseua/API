@@ -1,29 +1,29 @@
-DROP DATABASE IF EXISTS things;
-CREATE DATABASE things CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE things;
+DROP DATABASE IF EXISTS banco_de_dados_api;
+CREATE DATABASE banco_de_dados_api CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE banco_de_dados_api;
 
 CREATE TABLE users (
-    uid INT PRIMARY KEY AUTO_INCREMENT,
-    udate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    uname VARCHAR(255),
-    uemail VARCHAR(255),
-    upassword VARCHAR(127),
-    uavatar VARCHAR(255),
-    ubirth DATE,
-    ustatus ENUM('on', 'off', 'del') DEFAULT 'on'
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(127),
+    avatar VARCHAR(255),
+    birth DATE,
+    status ENUM('on', 'off', 'del') DEFAULT 'on'
 );
 
 CREATE TABLE things (
-    tid INT PRIMARY KEY AUTO_INCREMENT,
-    tdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    tuser INT,
-    tname VARCHAR(255),
-    tphoto VARCHAR(255),
-    tdescription TEXT,
-    tlocation VARCHAR(127),
-    toptions TEXT,
-    tstatus ENUM('on', 'off', 'del') DEFAULT 'on',
-    FOREIGN KEY (tuser) REFERENCES users (uid)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user INT,
+    name VARCHAR(255),
+    photo VARCHAR(255),
+    description TEXT,
+    location VARCHAR(127),
+    options TEXT,
+    status ENUM('on', 'off', 'del') DEFAULT 'on',
+    FOREIGN KEY (user) REFERENCES users (id)
 );
 
 INSERT INTO users VALUES 
