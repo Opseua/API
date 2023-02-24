@@ -1,9 +1,0 @@
-{
-    "user": 1,
-    "name": "Bigode de gato",
-    "photo": "https://picsum.photos/203",
-    "description": "Nulla ultrices aliquet arcu, nec vehicula libero ornare ac. Aenean finibus lectus in dolor mollis, eget lacinia sapien pharetra.",
-    "location": "Cama do gato",
-    "options": "{\"estado\": \"ausente\", \"cor\": \"branco\", \"marca\": \"SRD\"}",
-    "status": "on"
-}

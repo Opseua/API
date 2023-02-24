@@ -1,0 +1,9 @@
+{
+    "user": 1,
+    "name": "AAAAAAAAAAA",
+    "photo": "https://picsum.photos/200",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed imperdiet tellus. Suspendisse congue euismod tincidunt.",
+    "location": "Garagem",
+    "options": "{\"estado\": \"péssimo\", \"cor\": \"vermelha\", \"marca\": \"Monark\"}",
+    "status": "on"
+}

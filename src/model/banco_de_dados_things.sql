@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS banco_de_dados_api;
-CREATE DATABASE banco_de_dados_api CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE banco_de_dados_api;
+DROP DATABASE IF EXISTS banco_de_dados_things;
+CREATE DATABASE banco_de_dados_things CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE banco_de_dados_things;
 
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,

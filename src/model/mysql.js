@@ -1,5 +1,7 @@
-
-// Modulos necessarios
+/**
+ * Conexão com MySQL.
+ * referências: https://github.com/sidorares/node-mysql2
+ */
 const mysql = require('mysql2');
 
 // Obtém configurações do aplicativo.

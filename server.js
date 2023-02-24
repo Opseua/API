@@ -1,14 +1,22 @@
-// Modulos necessarios
+/**
+ * index.js
+ * Aplicativo principal.
+ */
+
+// Carrega o módulo "express.js".
 const express = require('express');
-const conf = require('dotenv').config().parsed;
-const appRouter = require('./control/routes');
+
+// Cria um aplicativo "Express".
 const app = express();
 
-// Checar se a porta já existe, do contrário defina para '3000'
+// Faz configuração do aplicativo.
+const conf = require('dotenv').config().parsed;
+
+// Faz configuração da porta do servidor HTTP.
 const port = conf.HTTPPORT || 3000;
 
 // Importa as listas de rotas.
-
+const appRouter = require('./src/control/routes');
 
 // Inicia monitoramento das rotas.
 app.use(appRouter);
